@@ -31,7 +31,8 @@ exports.auth = async (req, res, next) => {
       });
     }
 
-    (req.body.id = decodedData.id), (req.body.email = decodedData.email);
+    req.body.id = decodedData.id;
+    req.body.email = decodedData.email;
 
     next();
   } catch (error) {
