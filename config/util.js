@@ -10,10 +10,9 @@ exports.createToken = (id, email, res) => {
 
   res.cookie("token", token, {
     httpOnly: true,
-    sameSite: "strict",
+    sameSite: "lax",
     maxAge: 7 * 24 * 60 * 60 * 1000,
-    // secure: process.env.NODE_ENV !== "development",
-    secure: true,
+    secure: process.env.NODE_ENV === "production",
   });
 
   return token;
