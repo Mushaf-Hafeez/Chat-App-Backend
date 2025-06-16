@@ -11,6 +11,7 @@ exports.createToken = (id, email, res) => {
   res.cookie("token", token, {
     httpOnly: true,
     sameSite: "strict",
+    domain: ".vercel.app",
     maxAge: 7 * 24 * 60 * 60 * 1000,
     secure: process.env.NODE_ENV !== "development",
   });
