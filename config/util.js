@@ -10,8 +10,8 @@ exports.createToken = (id, email, res) => {
 
   res.cookie("token", token, {
     httpOnly: true,
-    // sameSite: "strict",
-    // secure: true,
+    secure: true,
+    sameSite: "none",
     maxAge: 7 * 24 * 60 * 60 * 1000,
     // domain: ".vercel.app",
   });
